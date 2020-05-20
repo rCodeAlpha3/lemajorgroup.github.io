@@ -1,6 +1,8 @@
 <?php
 
-    $to = "root96void@gmail.com";
+	$to = "root96void@gmail.com";
+	if(isset($_POST['submit']))
+	{
     $from = $_REQUEST['email'];
     $name = $_REQUEST['name'];
     $subject = $_REQUEST['subject'];
@@ -33,5 +35,11 @@
 	$body .= "</body></html>";
 
     $send = mail($to, $subject, $body, $headers);
+if($send){
+?><script>alert('Successful');</script> <?php
+}
+else{
+	die('error');
 
+	}}
 ?>
